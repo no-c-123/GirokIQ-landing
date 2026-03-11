@@ -1,0 +1,54 @@
+---
+const steps = [
+  {
+    step: "01",
+    title: "Capture Ideas",
+    description: "Write or sketch instantly on an infinite canvas. No more switching between apps.",
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>`
+  },
+  {
+    step: "02",
+    title: "Connect Thoughts",
+    description: "Combine handwriting, text, and media naturally. Create relationships between concepts.",
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>`
+  },
+  {
+    step: "03",
+    title: "Build Knowledge",
+    description: "Turn scattered ideas into structured knowledge. Tag, search, and organize effortlessly.",
+    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>`
+  }
+];
+---
+
+<section id="how-it-works" class="py-24 bg-[#0a0a0a]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-5xl font-bold mb-6">From chaos to clarity</h2>
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+        A simple workflow designed to help you make sense of complex information.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+      <!-- Connecting Line (Desktop) -->
+      <div class="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-blue-900/50 via-purple-900/50 to-blue-900/50 z-0"></div>
+
+      {steps.map((item, index) => (
+        <div class="relative z-10 flex flex-col items-center text-center">
+          <div class="w-24 h-24 rounded-2xl bg-[#121212] border border-white/10 flex items-center justify-center mb-6 shadow-xl relative group">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="text-blue-400 group-hover:scale-110 transition-transform duration-300">
+               <Fragment set:html={item.icon} />
+            </div>
+            <div class="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-blue-600 text-white font-bold text-sm flex items-center justify-center border-4 border-[#0a0a0a]">
+              {item.step}
+            </div>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-white">{item.title}</h3>
+          <p class="text-gray-400 leading-relaxed px-4">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

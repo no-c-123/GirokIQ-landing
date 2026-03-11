@@ -1,0 +1,77 @@
+---
+const plans = [
+  {
+    name: "Free",
+    price: "$0",
+    description: "Perfect for getting started with digital note-taking.",
+    features: [
+      "Unlimited infinite canvas",
+      "Basic pen tools",
+      "Export to PDF/Image",
+      "3 Notebooks",
+      "Cloud Sync (1 Device)"
+    ],
+    cta: "Start for Free",
+    highlight: false
+  },
+  {
+    name: "Pro",
+    price: "$12",
+    period: "/month",
+    description: "For power users who need advanced organization.",
+    features: [
+      "Everything in Free",
+      "Unlimited Notebooks",
+      "Advanced Search (OCR)",
+      "Priority Support",
+      "Cloud Sync (Unlimited)",
+      "Early Access to AI Features"
+    ],
+    cta: "Upgrade to Pro",
+    highlight: true
+  }
+];
+---
+
+<section id="pricing" class="py-24 bg-[#0a0a0a]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-5xl font-bold mb-6">Simple, transparent pricing</h2>
+      <p class="text-xl text-gray-400">Start for free, upgrade when you need more power.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      {plans.map(plan => (
+        <div class={`relative p-8 rounded-3xl border flex flex-col ${plan.highlight ? 'bg-white/5 border-blue-500/50 shadow-2xl shadow-blue-500/10' : 'bg-transparent border-white/10'}`}>
+          {plan.highlight && (
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-1 rounded-full text-sm font-medium shadow-lg">
+              Most Popular
+            </div>
+          )}
+          
+          <div class="mb-8">
+            <h3 class="text-xl font-semibold text-white mb-2">{plan.name}</h3>
+            <div class="flex items-baseline gap-1">
+              <span class="text-4xl font-bold text-white">{plan.price}</span>
+              {plan.period && <span class="text-gray-500">{plan.period}</span>}
+            </div>
+            <p class="text-gray-400 mt-4 text-sm">{plan.description}</p>
+          </div>
+
+          <ul class="space-y-4 mb-8 flex-1">
+            {plan.features.map(feature => (
+              <li class="flex items-start gap-3 text-gray-300 text-sm">
+                <svg class={`w-5 h-5 flex-shrink-0 ${plan.highlight ? 'text-blue-400' : 'text-gray-500'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+
+          <a href="https://app.girokiq.app" class={`w-full py-3 px-6 rounded-xl font-medium text-center transition-colors ${plan.highlight ? 'bg-white text-black hover:bg-gray-200' : 'bg-white/10 text-white hover:bg-white/20'}`}>
+            {plan.cta}
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

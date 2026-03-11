@@ -1,0 +1,46 @@
+---
+const testimonials = [
+  {
+    quote: "GirokIQ has completely transformed how I organize my thoughts. The infinite canvas feels liberating.",
+    author: "Sarah Chen",
+    role: "Product Designer",
+    avatar: "https://i.pravatar.cc/150?u=sarah"
+  },
+  {
+    quote: "Finally, a digital notebook that keeps up with my speed of thought. The handwriting engine is incredible.",
+    author: "Marcus Johnson",
+    role: "Software Architect",
+    avatar: "https://i.pravatar.cc/150?u=marcus"
+  },
+  {
+    quote: "I used to have papers everywhere. Now, everything is on one infinite board. It's a game changer.",
+    author: "Elena Rodriguez",
+    role: "PhD Researcher",
+    avatar: "https://i.pravatar.cc/150?u=elena"
+  }
+];
+---
+
+<section class="py-24 bg-[#0a0a0a]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl md:text-5xl font-bold mb-16 text-center">Loved by <span class="text-gradient">deep thinkers</span></h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {testimonials.map(testimonial => (
+        <div class="p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm relative">
+          <div class="absolute -top-4 -left-4 text-6xl text-blue-500/20 font-serif">"</div>
+          <p class="text-lg text-gray-300 mb-6 relative z-10 italic">"{testimonial.quote}"</p>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold text-sm">
+                {testimonial.author.charAt(0)}
+            </div>
+            <div>
+              <div class="font-semibold text-white">{testimonial.author}</div>
+              <div class="text-sm text-gray-500">{testimonial.role}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

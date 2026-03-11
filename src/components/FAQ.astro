@@ -1,0 +1,35 @@
+---
+const faqs = [
+  {
+    question: "What makes GirokIQ different from other note apps?",
+    answer: "GirokIQ combines the structure of linear notes with the freedom of an infinite canvas. It's built specifically for deep work and creative thinking, without the distractions of traditional tools."
+  },
+  {
+    question: "Does it support handwriting?",
+    answer: "Yes! Our custom handwriting engine is pressure-sensitive and feels incredibly natural. It works with all major styluses and tablets."
+  },
+  {
+    question: "Can I organize multiple notebooks?",
+    answer: "Absolutely. You can create unlimited notebooks, organize them into folders, and even link between pages to build a personal knowledge base."
+  },
+  {
+    question: "Will there be AI features in the future?",
+    answer: "Yes, we are actively developing AI features to help you summarize notes, generate ideas, and connect related concepts automatically."
+  }
+];
+---
+
+<section class="py-24 bg-[#0a0a0a]">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl md:text-5xl font-bold mb-16 text-center">Frequently asked questions</h2>
+    
+    <div class="space-y-8">
+      {faqs.map(faq => (
+        <div class="border-b border-white/10 pb-8">
+          <h3 class="text-xl font-semibold text-white mb-3">{faq.question}</h3>
+          <p class="text-gray-400 leading-relaxed">{faq.answer}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

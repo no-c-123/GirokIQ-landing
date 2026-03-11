@@ -1,0 +1,60 @@
+---
+const useCases = [
+  {
+    title: "Students",
+    description: "Take handwritten lecture notes, draw diagrams, and annotate PDFs all in one place.",
+    tags: ["Lecture Notes", "Diagrams", "PDF Annotation"]
+  },
+  {
+    title: "Engineers",
+    description: "Sketch system architectures, brainstorm database schemas, and map out user flows.",
+    tags: ["System Design", "Brainstorming", "Flowcharts"]
+  },
+  {
+    title: "Designers",
+    description: "Create mood boards, wireframe interfaces, and explore visual concepts freely.",
+    tags: ["Mood Boards", "Wireframing", "Ideation"]
+  },
+  {
+    title: "Founders",
+    description: "Map out business strategies, plan product roadmaps, and organize investor pitches.",
+    tags: ["Strategy", "Roadmaps", "Planning"]
+  }
+];
+---
+
+<section class="py-24 bg-[#0a0a0a]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <h2 class="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+          Built for <br />
+          <span class="text-gradient">visionaries & creators</span>
+        </h2>
+        <p class="text-xl text-gray-400 mb-8 leading-relaxed">
+          Whether you're solving complex engineering problems or planning your next big venture, GirokIQ gives you the space to think.
+        </p>
+        <a href="#" class="text-blue-400 font-medium hover:text-blue-300 inline-flex items-center gap-1 group">
+          Explore all use cases 
+          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {useCases.map(useCase => (
+          <div class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+            <h3 class="text-xl font-bold mb-3 text-white">{useCase.title}</h3>
+            <p class="text-sm text-gray-400 mb-4">{useCase.description}</p>
+            <div class="flex flex-wrap gap-2">
+              {useCase.tags.map(tag => (
+                <span class="px-2 py-1 rounded-md bg-white/5 text-xs text-gray-300 border border-white/5">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

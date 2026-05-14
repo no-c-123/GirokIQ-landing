@@ -1,0 +1,249 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Privacy Policy - GirokIQ">
+  <Navbar />
+  
+  <main class="pt-32 pb-24 relative overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#C9A84C]/10 blur-[120px] rounded-full pointer-events-none"></div>
+    
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="mb-12 text-center">
+        <h1 class="text-4xl md:text-5xl font-serif text-white mb-4">Privacy Policy</h1>
+        <p class="text-gray-400">Last Updated: May 12, 2026</p>
+      </div>
+
+      <div class="space-y-12">
+        <section>
+          <p class="text-gray-300 leading-relaxed text-lg">
+            Welcome to GirokIQ. Your privacy is central to our mission of providing a "think on canvas" experience. This policy explains how your data is collected, used, and protected when you use the GirokIQ mobile application and services.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-sm text-[#C9A84C]">1</span>
+            Introduction
+          </h2>
+          <p class="text-gray-300 leading-relaxed">
+            GirokIQ is developed and operated by an independent developer. By using the app, you agree to the collection and use of information in accordance with this policy.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-sm text-[#C9A84C]">2</span>
+            Information We Collect
+          </h2>
+          <p class="text-gray-300 leading-relaxed mb-6">
+            We collect only the data necessary to provide you with a seamless, synced, and AI-enhanced note-taking experience.
+          </p>
+          
+          <div class="space-y-8">
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+              <h3 class="text-xl font-medium text-white mb-4">A. Account Information</h3>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <div class="w-1.5 h-1.5 rounded-full bg-[#C9A84C] mt-2.5 shrink-0"></div>
+                  <p class="text-gray-300"><strong class="text-white">Email Address & Display Name:</strong> Collected during sign-up for account identification.</p>
+                </li>
+                <li class="flex items-start gap-3">
+                  <div class="w-1.5 h-1.5 rounded-full bg-[#C9A84C] mt-2.5 shrink-0"></div>
+                  <p class="text-gray-300"><strong class="text-white">Apple ID:</strong> If using "Sign in with Apple," we receive a unique user identifier provided by Apple.</p>
+                </li>
+                <li class="flex items-start gap-3">
+                  <div class="w-1.5 h-1.5 rounded-full bg-[#C9A84C] mt-2.5 shrink-0"></div>
+                  <p class="text-gray-300"><strong class="text-white">User ID:</strong> A unique UUID generated via Supabase Auth to manage your cloud data.</p>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+              <h3 class="text-xl font-medium text-white mb-4">B. Content Data (Sync & Storage)</h3>
+              <p class="text-gray-300 leading-relaxed mb-4">To enable syncing across your devices, the following are stored in our secure cloud database (Supabase):</p>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <div class="w-1.5 h-1.5 rounded-full bg-[#C9A84C] mt-2.5 shrink-0"></div>
+                  <p class="text-gray-300"><strong class="text-white">Notebooks & Folders:</strong> Titles, timestamps, and organizational settings.</p>
+                </li>
+                <li class="flex items-start gap-3">
+                  <div class="w-1.5 h-1.5 rounded-full bg-[#C9A84C] mt-2.5 shrink-0"></div>
+                  <p class="text-gray-300"><strong class="text-white">Canvas Elements:</strong> Drawing data (PKDrawing binary), ink strokes, images, text blocks, and their properties (position, size, z-index).</p>
+                </li>
+                <li class="flex items-start gap-3">
+                  <div class="w-1.5 h-1.5 rounded-full bg-[#C9A84C] mt-2.5 shrink-0"></div>
+                  <p class="text-gray-300"><strong class="text-white">AI Chat Sessions:</strong> Chat titles and all messages sent and received.</p>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+              <h3 class="text-xl font-medium text-white mb-4">C. Device & Presence Data</h3>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <div class="w-1.5 h-1.5 rounded-full bg-[#C9A84C] mt-2.5 shrink-0"></div>
+                  <p class="text-gray-300"><strong class="text-white">App State:</strong> We store your last active notebook and sync preferences to provide a consistent experience.</p>
+                </li>
+                <li class="flex items-start gap-3">
+                  <div class="w-1.5 h-1.5 rounded-full bg-[#C9A84C] mt-2.5 shrink-0"></div>
+                  <p class="text-gray-300"><strong class="text-white">Real-time Presence:</strong> When a notebook is open, your User ID and platform ("ios") are broadcast to a secure channel via Supabase Realtime to manage active sessions.</p>
+                </li>
+                <li class="flex items-start gap-3">
+                  <div class="w-1.5 h-1.5 rounded-full bg-[#C9A84C] mt-2.5 shrink-0"></div>
+                  <p class="text-gray-300"><strong class="text-white">Biometrics:</strong> If you enable Face ID/Touch ID, the biometric data <strong class="text-[#C9A84C]">never leaves your device</strong>. We only store a local preference indicating the lock is enabled.</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-sm text-[#C9A84C]">3</span>
+            Third-Party Data Processing
+          </h2>
+          <p class="text-gray-300 leading-relaxed mb-6">
+            We use high-quality third-party services to power GirokIQ. Your data is shared with them only for the functional purposes described below:
+          </p>
+          
+          <div class="overflow-x-auto mb-6 rounded-2xl border border-white/10 bg-white/5">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-white/10 bg-white/[0.02]">
+                  <th class="py-4 px-6 text-white font-medium">Service</th>
+                  <th class="py-4 px-6 text-white font-medium">Purpose</th>
+                  <th class="py-4 px-6 text-white font-medium">Data Shared</th>
+                </tr>
+              </thead>
+              <tbody class="text-gray-300 divide-y divide-white/10">
+                <tr>
+                  <td class="py-4 px-6 text-white">Supabase</td>
+                  <td class="py-4 px-6">Cloud Hosting & Auth</td>
+                  <td class="py-4 px-6">Account info, notes, drawings, and app state.</td>
+                </tr>
+                <tr>
+                  <td class="py-4 px-6 text-white">Anthropic (Claude)</td>
+                  <td class="py-4 px-6">AI Assistant</td>
+                  <td class="py-4 px-6">Chat messages and canvas screenshots (when vision features are used).</td>
+                </tr>
+                <tr>
+                  <td class="py-4 px-6 text-white">Apple</td>
+                  <td class="py-4 px-6">Authentication</td>
+                  <td class="py-4 px-6">Identity tokens for Sign in with Apple.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="p-5 rounded-2xl bg-[#C9A84C]/10 border border-[#C9A84C]/20 flex gap-4">
+            <svg class="w-6 h-6 text-[#C9A84C] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <p class="text-[#C9A84C] text-sm leading-relaxed">
+              <strong>Important Note on AI:</strong> When you use the AI chat or vision features, your text and canvas screenshots are processed by Anthropic. This data is used solely to generate responses and is subject to Anthropic's privacy standards.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-sm text-[#C9A84C]">4</span>
+            What We Do NOT Collect
+          </h2>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-5">
+              <strong class="text-white block mb-2">No Tracking</strong>
+              <p class="text-gray-400 text-sm">We do not use advertising or tracking SDKs.</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-5">
+              <strong class="text-white block mb-2">No Analytics</strong>
+              <p class="text-gray-400 text-sm">We do not use third-party analytics (like Firebase or Mixpanel) to track your behavior.</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-5">
+              <strong class="text-white block mb-2">No Crash Reporting</strong>
+              <p class="text-gray-400 text-sm">We do not use external crash reporting services.</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-5">
+              <strong class="text-white block mb-2">No Data Mining</strong>
+              <p class="text-gray-400 text-sm">Your notes are yours. We do not sell your data or use it for advertising.</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-sm text-[#C9A84C]">5</span>
+            Data Storage and Retention
+          </h2>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <div class="w-1.5 h-1.5 rounded-full bg-[#C9A84C] mt-2.5 shrink-0"></div>
+              <p class="text-gray-300"><strong class="text-white">Local Storage:</strong> All content is cached locally on your device in a secure SQLite database (GRDB) for offline use.</p>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-1.5 h-1.5 rounded-full bg-[#C9A84C] mt-2.5 shrink-0"></div>
+              <p class="text-gray-300"><strong class="text-white">Cloud Storage:</strong> Data is retained in Supabase as long as your account is active.</p>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-1.5 h-1.5 rounded-full bg-[#C9A84C] mt-2.5 shrink-0"></div>
+              <p class="text-gray-300"><strong class="text-white">Deletion:</strong> You may delete your account and all associated data at any time via the app settings.</p>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-sm text-[#C9A84C]">6</span>
+            Your Rights & Control
+          </h2>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <div class="w-1.5 h-1.5 rounded-full bg-[#C9A84C] mt-2.5 shrink-0"></div>
+              <p class="text-gray-300"><strong class="text-white">Export:</strong> You can use the "Export All Data" feature within the app to retrieve your information.</p>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-1.5 h-1.5 rounded-full bg-[#C9A84C] mt-2.5 shrink-0"></div>
+              <p class="text-gray-300"><strong class="text-white">Access/Correction:</strong> You can update your display name and content directly in the app.</p>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-1.5 h-1.5 rounded-full bg-[#C9A84C] mt-2.5 shrink-0"></div>
+              <p class="text-gray-300"><strong class="text-white">Children's Privacy:</strong> GirokIQ is not specifically directed to children under 13. We do not knowingly collect personal information from children under 13.</p>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-sm text-[#C9A84C]">7</span>
+            Governing Law
+          </h2>
+          <p class="text-gray-300 leading-relaxed">
+            As the developer is based in Mexico, this policy is governed by the laws of Mexico.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-sm text-[#C9A84C]">8</span>
+            Contact Information
+          </h2>
+          <p class="text-gray-300 leading-relaxed mb-6">
+            For any questions regarding this Privacy Policy or to request data deletion, please contact:
+          </p>
+          <div class="p-6 rounded-2xl border border-white/10 bg-white/5 inline-block">
+            <p class="text-white font-medium mb-1">GirokIQ Team</p>
+            <p class="text-gray-400">
+              Email: <a href="mailto:leal.emiliano.hector@gmail.com" class="text-[#C9A84C] hover:underline transition-all">leal.emiliano.hector@gmail.com</a>
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>

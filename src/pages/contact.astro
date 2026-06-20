@@ -1,0 +1,156 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mojnnzyd';
+---
+
+<Layout
+  title="Contact - GirokIQ"
+  description="Get in touch with the GirokIQ team. Questions, feedback, or support — we'd love to hear from you."
+>
+  <Navbar />
+
+  <main class="pt-32 pb-24 relative overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#C9A84C]/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="mb-12 text-center">
+        <h1 class="text-4xl md:text-5xl font-serif text-white mb-4">Get in Touch</h1>
+        <p class="text-gray-400 text-lg max-w-xl mx-auto">
+          Have a question, some feedback, or need a hand? Send us a message and we'll get back to you as soon as we can.
+        </p>
+      </div>
+
+      <div class="glass-card sm:p-8 contact-container">
+        <form
+          class="contact-form flex flex-col gap-5"
+          action={FORMSPREE_ENDPOINT}
+          method="POST"
+        >
+          <div class="flex flex-col sm:flex-row gap-5">
+            <div class="flex flex-col gap-2 flex-1">
+              <label for="name" class="text-sm font-medium text-gray-300">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your name"
+                required
+                class="px-4 py-3.5 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all shadow-inner"
+              />
+            </div>
+            <div class="flex flex-col gap-2 flex-1">
+              <label for="email" class="text-sm font-medium text-gray-300">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                required
+                class="px-4 py-3.5 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all shadow-inner"
+              />
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label for="subject" class="text-sm font-medium text-gray-300">Subject</label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              placeholder="What's this about?"
+              required
+              class="px-4 py-3.5 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all shadow-inner"
+            />
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label for="message" class="text-sm font-medium text-gray-300">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="6"
+              placeholder="Tell us what's on your mind..."
+              required
+              class="px-4 py-3.5 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all shadow-inner resize-y"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="submit-btn btn-primary px-6 py-3.5 mt-1 whitespace-nowrap flex items-center justify-center gap-2 shadow-lg shadow-brand-gold/25 disabled:opacity-70 disabled:cursor-not-allowed"
+          >
+            <span class="btn-text">Send Message</span>
+            <svg class="spinner w-5 h-5 animate-spin hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+          </button>
+
+          <div class="form-message text-sm text-center hidden"></div>
+        </form>
+      </div>
+
+      <p class="text-center text-gray-500 text-sm mt-8">
+        Prefer email? Reach us directly at
+        <a href="mailto:leal.emiliano.hector@gmail.com" class="text-[#C9A84C] hover:underline transition-all">leal.emiliano.hector@gmail.com</a>
+      </p>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  const form = document.querySelector('.contact-form') as HTMLFormElement | null;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const container = form.closest('.contact-container');
+    const submitBtn = form.querySelector('.submit-btn') as HTMLButtonElement;
+    const btnText = form.querySelector('.btn-text');
+    const spinner = form.querySelector('.spinner');
+    const messageEl = container?.querySelector('.form-message');
+
+    // Loading state
+    submitBtn.disabled = true;
+    if (btnText) btnText.textContent = 'Sending...';
+    spinner?.classList.remove('hidden');
+    if (messageEl) messageEl.classList.add('hidden');
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+
+      if (response.ok) {
+        form.reset();
+        if (messageEl) {
+          messageEl.textContent = "Thanks for reaching out! We'll be in touch soon.";
+          messageEl.className = 'form-message text-sm text-center text-green-400 block';
+        }
+      } else {
+        const data = await response.json().catch(() => null);
+        const errorMsg =
+          data?.errors?.map((err: { message: string }) => err.message).join(', ') ||
+          'Something went wrong. Please try again.';
+        throw new Error(errorMsg);
+      }
+    } catch (err: any) {
+      if (messageEl) {
+        messageEl.textContent = err.message || 'Something went wrong. Please try again.';
+        messageEl.className = 'form-message text-sm text-center text-red-400 block';
+      }
+    } finally {
+      submitBtn.disabled = false;
+      if (btnText) btnText.textContent = 'Send Message';
+      spinner?.classList.add('hidden');
+    }
+  });
+</script>

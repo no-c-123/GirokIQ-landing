@@ -1,0 +1,123 @@
+---
+// Feature spotlights — adapted from the App Store preview slides.
+// Each row pairs a real iPadOS screenshot (in a device frame) with the copy
+// from the marketing slides. Rows alternate sides on desktop.
+const spotlights = [
+  {
+    num: "01",
+    eyebrow: "AI on the page",
+    head: "AI that reads your",
+    accent: "page.",
+    sub: "Circle anything.",
+    subBold: "Handwriting and all.",
+    image: "/screens/ai-page.jpg",
+    alt: "GirokIQ AI checking handwritten calculus for mistakes on the canvas",
+    glow: "gold",
+    reverse: false,
+  },
+  {
+    num: "02",
+    eyebrow: "Write & Draw",
+    head: "Write the way you",
+    accent: "think.",
+    sub: "Apple Pencil ink on a canvas that",
+    subBold: "never ends.",
+    image: "/screens/write-draw.jpg",
+    alt: "Handwritten Linear Algebra notes with an active lasso selection in GirokIQ",
+    glow: "ink",
+    reverse: true,
+  },
+  {
+    num: "03",
+    eyebrow: "AI assistant",
+    head: "An assistant beside your",
+    accent: "work.",
+    sub: "Ask and brainstorm",
+    subBold: "without leaving the page.",
+    image: "/screens/assistant.jpg",
+    alt: "GirokIQ split view with notes on the left and the AI chat assistant on the right",
+    glow: "gold",
+    reverse: false,
+  },
+  {
+    num: "04",
+    eyebrow: "Organized",
+    head: "Everything in",
+    accent: "one place.",
+    sub: "Color-coded notebooks for",
+    subBold: "class, work, and life.",
+    image: "/screens/library.jpg",
+    alt: "GirokIQ notebook library with color-coded notebooks for school, biology, physics and more",
+    glow: "ink",
+    reverse: true,
+  },
+];
+---
+
+<section id="spotlight" class="relative py-24 bg-dark-bg overflow-hidden">
+  <!-- Dot grid backdrop -->
+  <div
+    class="absolute inset-0 opacity-[0.06] pointer-events-none"
+    style="background-image: radial-gradient(#ffffff 1.5px, transparent 1.5px); background-size: 36px 36px; mask-image: radial-gradient(120% 100% at 50% 0%, #000 30%, transparent 75%); -webkit-mask-image: radial-gradient(120% 100% at 50% 0%, #000 30%, transparent 75%);"
+  >
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-20">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4">
+        Notes, sketches, and ideas — <span class="text-gradient">with AI on the page</span>
+      </h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+        A native iPadOS notebook where handwriting, text, and AI all live on the same infinite canvas.
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-24 md:gap-32">
+      {spotlights.map((item) => (
+        <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Copy */}
+          <div class={item.reverse ? "md:order-2" : "md:order-1"}>
+            <span class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/40 text-brand-gold text-xs sm:text-sm font-semibold uppercase tracking-[0.16em] mb-6">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>
+              <span class="text-brand-gold-light">{item.num}</span>
+              <span class="opacity-50">·</span>
+              {item.eyebrow}
+            </span>
+            <h3 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] mb-5">
+              {item.head}{" "}
+              <span class="text-gradient">{item.accent}</span>
+            </h3>
+            <p class="text-lg md:text-xl text-gray-400 leading-relaxed max-w-md">
+              {item.sub} <span class="text-white font-semibold">{item.subBold}</span>
+            </p>
+          </div>
+
+          {/* Device + screenshot */}
+          <div class={item.reverse ? "md:order-1" : "md:order-2"}>
+            <div class="relative group">
+              {/* Gold glow behind the device */}
+              <div
+                class={`absolute -inset-8 rounded-[3rem] blur-3xl opacity-50 ${item.glow === "gold" ? "bg-brand-gold/20" : "bg-[#3D5A80]/25"}`}
+              >
+              </div>
+              {/* Device frame */}
+              <div class="relative rounded-[1.75rem] p-2.5 sm:p-3 bg-gradient-to-br from-[#2b2b2b] to-[#141414] border border-white/25 shadow-2xl shadow-black/60">
+                <div class="rounded-[1.25rem] overflow-hidden aspect-[3/2] border border-white/10 bg-[#171717]">
+                  <img
+                    src={item.image}
+                    alt={item.alt}
+                    width="1505"
+                    height="1045"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
